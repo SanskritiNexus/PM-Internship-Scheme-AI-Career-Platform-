@@ -1,0 +1,62 @@
+{
+  "internships": [
+    {
+      "title": "Software Development Intern",
+      "company": "Microsoft",
+      "duration": "3 months",
+      "skills": ["JavaScript", "React", "Node.js"],
+      "match": "95%"
+    },
+    {
+      "title": "Data Science Intern",
+      "company": "Google",
+      "duration": "6 months",
+      "skills": ["Python", "Machine Learning", "Data Analysis"],
+      "match": "90%"
+    },
+    {
+      "title": "UX/UI Design Intern",
+      "company": "Adobe",
+      "duration": "4 months",
+      "skills": ["UI Design", "Figma", "User Research"],
+      "match": "85%"
+    },
+    {
+      "title": "Product Management Intern",
+      "company": "Amazon",
+      "duration": "3 months",
+      "skills": ["Product Strategy", "Market Research", "Agile"],
+      "match": "80%"
+    }
+  ],
+  "courses": [
+    {
+      "title": "Advanced Web Development",
+      "platform": "Udemy",
+      "duration": "10 weeks",
+      "skills": ["JavaScript", "React", "Node.js", "Full Stack"],
+      "level": "Intermediate"
+    },
+    {
+      "title": "Data Science Bootcamp",
+      "platform": "Coursera",
+      "duration": "12 weeks",
+      "skills": ["Python", "Machine Learning", "Data Analysis", "Statistics"],
+      "level": "Beginner to Intermediate"
+    },
+    {
+      "title": "UX/UI Design Masterclass",
+      "platform": "Skillshare",
+      "duration": "8 weeks",
+      "skills": ["UI Design", "Figma", "User Research", "Prototyping"],
+      "level": "All Levels"
+    },
+    {
+      "title": "Product Management Essentials",
+      "platform": "edX",
+      "duration": "6 weeks",
+      "skills": ["Product Strategy", "Market Research", "Agile", "Leadership"],
+      "level": "Intermediate"
+    }
+  ]
+}

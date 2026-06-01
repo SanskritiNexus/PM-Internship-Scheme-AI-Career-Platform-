@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Builder - PM Internship Scheme</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="logo.svg" alt="PM Internship Scheme Logo">
+                <span>PM Internship Scheme</span>
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="find-internships.html">Find Internships</a></li>
+                    <li><a href="career-guidance.html">Career Guidance</a></li>
+                    <li><a href="resume-builder.html" class="active">AI Resume Builder</a></li>
+                    <li><a href="mock-interview.html">AI Mock Interview</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Security Monitor Panel -->
+    <div class="security-monitor-panel">
+        <div class="container">
+            <div class="monitor-item">
+                <span class="label">AI Threat Score:</span>
+                <span class="value" id="monitor-threat-score">0</span>
+            </div>
+            <div class="monitor-item">
+                <span class="label">Session Status:</span>
+                <span class="value" id="monitor-session-status">Secure</span>
+            </div>
+            <div class="monitor-item">
+                <span class="label">Security Monitoring:</span>
+                <span class="value status-active">Active</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Main Content -->
+    <section class="page-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>AI Resume Builder</h1>
+                <p>Create a professional, ATS-friendly resume in minutes</p>
+            </div>
+            
+            <!-- Resume Builder Options -->
+            <div class="builder-options">
+                <div class="option-cards">
+                    <div class="option-card active" data-option="simple">
+                        <div class="option-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3>Simple Resume Builder</h3>
+                        <p>Perfect for beginners. Create a clean, professional resume quickly.</p>
+                    </div>
+                    <div class="option-card" data-option="bilingual">
+                        <div class="option-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <h3>Bilingual Resume Builder</h3>
+                        <p>Create a resume in English + your regional language.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="resume-form" id="resume-form">
+                <div id="language-selector" style="display: none; margin-bottom: 20px;">
+                    <h3><i class="fas fa-language"></i> Select Regional Language</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="regionalLanguage">Regional Language</label>
+                            <select id="regionalLanguage" name="regionalLanguage">
+                                <option value="hindi">Hindi</option>
+                                <option value="tamil">Tamil</option>
+                                <option value="telugu">Telugu</option>
+                                <option value="bengali">Bengali</option>
+                                <option value="marathi">Marathi</option>
+                                <option value="gujarati">Gujarati</option>
+                                <option value="kannada">Kannada</option>
+                                <option value="malayalam">Malayalam</option>
+                                <option value="punjabi">Punjabi</option>
+                                <option value="odia">Odia</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Personal Details Section -->
+                <div class="form-section sensitive-data">
+                    <h3><i class="fas fa-user"></i> Personal Details</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" placeholder="e.g., Rahul Sharma">
+                        </div>
+                        <div class="form-group">
+                            <label for="jobTitle">Professional Title</label>
+                            <input type="text" id="jobTitle" name="jobTitle" placeholder="e.g., Software Developer">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="e.g., rahul.sharma@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="e.g., +91 98765 43210">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="summary">Professional Summary</label>
+                            <textarea id="summary" name="summary" placeholder="Brief overview of your professional background and key strengths..."></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Education Section -->
+                <div class="form-section sensitive-data">
+                    <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="degree">Degree/Certificate</label>
+                            <input type="text" id="degree" name="degree" placeholder="e.g., Bachelor of Technology">
+                        </div>
+                        <div class="form-group">
+                            <label for="institution">Institution</label>
+                            <input type="text" id="institution" name="institution" placeholder="e.g., Indian Institute of Technology">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Experience Section -->
+                <div class="form-section sensitive-data">
+                    <h3><i class="fas fa-briefcase"></i> Work Experience</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="jobPosition">Position</label>
+                            <input type="text" id="jobPosition" name="jobPosition" placeholder="e.g., Software Engineer Intern">
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" name="company" placeholder="e.g., Tech Solutions Ltd.">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="jobDescription">Responsibilities & Achievements</label>
+                            <textarea id="jobDescription" name="jobDescription" placeholder="Describe your key responsibilities, achievements, and projects..."></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skills Section -->
+                <div class="form-section sensitive-data">
+                    <h3><i class="fas fa-tools"></i> Skills</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="skills">Skills (Comma Separated)</label>
+                            <input type="text" id="skills" name="skills" placeholder="e.g., Java, Python, Project Management, Communication">
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; margin-top: 30px;">
+                    <button type="button" id="reset-form" class="btn secondary">Reset Form</button>
+                    <button type="button" id="generate-resume" class="btn primary">Generate Resume</button>
+                </div>
+            </div>
+            
+            <!-- Skill Gap Analysis Section -->
+            <div class="skill-gap-section sensitive-data" id="skill-gap-section" style="display: none; margin-top: 30px;">
+                <h2 class="section-title">Skill Gap Analysis – Know More, Grow More</h2>
+                <div class="skill-gap-container">
+                    <div class="skill-gap-card">
+                        <h3>✅ What You Already Know</h3>
+                        <ul id="existing-skills-list">
+                            <!-- Existing skills will be populated here -->
+                        </ul>
+                    </div>
+                    <div class="skill-gap-card">
+                        <h3>📘 What You Should Learn Next</h3>
+                        <ul id="recommended-skills-list">
+                            <!-- Recommended skills will be populated here -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Resume Preview Section -->
+            <div class="preview-section" id="preview-section">
+                <div class="resume-preview sensitive-data">
+                    <div class="resume-header">
+                        <h2 id="preview-name">Your Name</h2>
+                        <p id="preview-title">Your Professional Title</p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 15px;">
+                            <span><i class="fas fa-envelope"></i> <span id="preview-email">your.email@example.com</span></span>
+                            <span><i class="fas fa-phone"></i> <span id="preview-phone">Your Phone Number</span></span>
+                        </div>
+                    </div>
+                    
+                    <div class="resume-section">
+                        <h3>Professional Summary</h3>
+                        <p id="preview-summary">Your professional summary will appear here.</p>
+                    </div>
+                    
+                    <div class="resume-section">
+                        <h3>Education</h3>
+                        <div>
+                            <h4 id="preview-degree">Your Degree</h4>
+                            <p id="preview-institution">Your Institution</p>
+                        </div>
+                    </div>
+                    
+                    <div class="resume-section">
+                        <h3>Work Experience</h3>
+                        <div>
+                            <h4 id="preview-position">Your Position</h4>
+                            <p id="preview-company">Your Company</p>
+                            <p id="preview-job-description">Your job description will appear here.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="resume-section">
+                        <h3>Skills</h3>
+                        <div class="skills-list" id="preview-skills">
+                            <!-- Skills will be added here -->
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px; text-align: center;">
+                        <button id="edit-resume" class="btn secondary">Edit Resume</button>
+                        <button id="download-pdf" class="btn primary">Download PDF</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Resume Preview Card -->
+            <div class="preview-card" id="preview-card" style="display: none;">
+                <div class="preview-card-inner sensitive-data">
+                    <h3>Your Resume is Ready!</h3>
+                    <div class="preview-image">
+                        <img src="resume-preview.svg" alt="Resume Preview">
+                    </div>
+                    <p>Your professional, ATS-friendly resume has been generated.</p>
+                    <div class="preview-actions">
+                        <button id="edit-from-card" class="btn secondary">Edit</button>
+                        <button id="download-from-card" class="btn primary">Download PDF</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recommendations Section -->
+            <div class="recommendations-section sensitive-data" id="recommendations-section" style="display: none;">
+                <h3><i class="fas fa-lightbulb"></i> Personalized Recommendations</h3>
+                
+                <!-- Internship Recommendations -->
+                <div class="recommendation-card">
+                    <h4><i class="fas fa-briefcase"></i> Recommended Internships</h4>
+                    <div class="recommendation-items" id="internship-recommendations">
+                        <!-- Internship recommendations will be dynamically added here -->
+                    </div>
+                    <div style="text-align: center; margin-top: 10px;">
+                         <a href="find-internships.html" class="btn btn-secondary">View More Internships</a>
+                     </div>
+                </div>
+                
+                <!-- Course Recommendations -->
+                <div class="recommendation-card">
+                    <h4><i class="fas fa-graduation-cap"></i> Recommended Courses</h4>
+                    <div class="recommendation-items" id="course-recommendations">
+                        <!-- Course recommendations will be dynamically added here -->
+                    </div>
+                    <div style="text-align: center; margin-top: 10px;">
+                         <a href="career-guidance.html" class="btn btn-secondary">Explore More Courses</a>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="tricolor-strip"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="indian-flag.svg" alt="Indian Flag">
+                    <p>Made in India for Indian Youth</p>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 PM Internship Scheme. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="recommendations.js"></script>
+    <script>
+        // Translation API function
+        async function translateText(text, targetLanguage) {
+            // For demonstration, using a simple translation mapping
+            // In a production environment, you would use a proper translation API
+            const translations = {
+                'hindi': {
+                    'Your Name': 'आपका नाम',
+                    'Your Professional Title': 'आपका पेशेवर शीर्षक',
+                    'Professional Summary': 'पेशेवर सारांश',
+                    'Education': 'शिक्षा',
+                    'Work Experience': 'कार्य अनुभव',
+                    'Skills': 'कौशल',
+                    'Your Degree': 'आपकी डिग्री',
+                    'Your Institution': 'आपका संस्थान',
+                    'Your Position': 'आपका पद',
+                    'Your Company': 'आपकी कंपनी'
+                },
+                'tamil': {
+                    'Your Name': 'உங்கள் பெயர்',
+                    'Your Professional Title': 'உங்கள் தொழில் தலைப்பு',
+                    'Professional Summary': 'தொழில்முறை சுருக்கம்',
+                    'Education': 'கல்வி',
+                    'Work Experience': 'வேலை அனுபவம்',
+                    'Skills': 'திறன்கள்',
+                    'Your Degree': 'உங்கள் பட்டம்',
+                    'Your Institution': 'உங்கள் நிறுவனம்',
+                    'Your Position': 'உங்கள் பதவி',
+                    'Your Company': 'உங்கள் நிறுவனம்'
+                },
+                'telugu': {
+                    'Your Name': 'మీ పేరు',
+                    'Your Professional Title': 'మీ వృత్తి శీర్షిక',
+                    'Professional Summary': 'వృత్తిపరమైన సారాంశం',
+                    'Education': 'విద్య',
+                    'Work Experience': 'పని అనుభవం',
+                    'Skills': 'నైపుణ్యాలు',
+                    'Your Degree': 'మీ డిగ్రీ',
+                    'Your Institution': 'మీ సంస్థ',
+                    'Your Position': 'మీ స్థానం',
+                    'Your Company': 'మీ కంపెనీ'
+                },
+                'bengali': {
+                    'Your Name': 'আপনার নাম',
+                    'Your Professional Title': 'আপনার পেশাদার শিরোনাম',
+                    'Professional Summary': 'পেশাদার সারাংশ',
+                    'Education': 'শিক্ষা',
+                    'Work Experience': 'কাজের অভিজ্ঞতা',
+                    'Skills': 'দক্ষতা',
+                    'Your Degree': 'আপনার ডিগ্রি',
+                    'Your Institution': 'আপনার প্রতিষ্ঠান',
+                    'Your Position': 'আপনার অবস্থান',
+                    'Your Company': 'আপনার কোম্পানি'
+                },
+                'marathi': {
+                    'Your Name': 'तुमचे नाव',
+                    'Your Professional Title': 'तुमचे व्यावसायिक शीर्षक',
+                    'Professional Summary': 'व्यावसायिक सारांश',
+                    'Education': 'शिक्षण',
+                    'Work Experience': 'कामाचा अनुभव',
+                    'Skills': 'कौशल्ये',
+                    'Your Degree': 'तुमची पदवी',
+                    'Your Institution': 'तुमची संस्था',
+                    'Your Position': 'तुमचे पद',
+                    'Your Company': 'तुमची कंपनी'
+                },
+                'gujarati': {
+                    'Your Name': 'તમારું નામ',
+                    'Your Professional Title': 'તમારું વ્યાવસાયિક શીર્ષક',
+                    'Professional Summary': 'વ્યાવસાયિક સારાંશ',
+                    'Education': 'શિક્ષણ',
+                    'Work Experience': 'કામનો અનુભવ',
+                    'Skills': 'કુશળતા',
+                    'Your Degree': 'તમારી ડિગ્રી',
+                    'Your Institution': 'તમારી સંસ્થા',
+                    'Your Position': 'તમારું પદ',
+                    'Your Company': 'તમારી કંપની'
+                },
+                'kannada': {
+                    'Your Name': 'ನಿಮ್ಮ ಹೆಸರು',
+                    'Your Professional Title': 'ನಿಮ್ಮ ವೃತ್ತಿಪರ ಶೀರ್ಷಿಕೆ',
+                    'Professional Summary': 'ವೃತ್ತಿಪರ ಸಾರಾಂಶ',
+                    'Education': 'ಶಿಕ್ಷಣ',
+                    'Work Experience': 'ಕೆಲಸದ ಅನುಭವ',
+                    'Skills': 'ಕೌಶಲ್ಯಗಳು',
+                    'Your Degree': 'ನಿಮ್ಮ ಪದವಿ',
+                    'Your Institution': 'ನಿಮ್ಮ ಸಂಸ್ಥೆ',
+                    'Your Position': 'ನಿಮ್ಮ ಸ್ಥಾನ',
+                    'Your Company': 'ನಿಮ್ಮ ಕಂಪನಿ'
+                },
+                'malayalam': {
+                    'Your Name': 'നിങ്ങളുടെ പേര്',
+                    'Your Professional Title': 'നിങ്ങളുടെ പ്രൊഫഷണൽ ടൈറ്റിൽ',
+                    'Professional Summary': 'പ്രൊഫഷണൽ സംഗ്രഹം',
+                    'Education': 'വിദ്യാഭ്യാസം',
+                    'Work Experience': 'ജോലി അനുഭവം',
+                    'Skills': 'കഴിവുകൾ',
+                    'Your Degree': 'നിങ്ങളുടെ ബിരുദം',
+                    'Your Institution': 'നിങ്ങളുടെ സ്ഥാപനം',
+                    'Your Position': 'നിങ്ങളുടെ സ്ഥാനം',
+                    'Your Company': 'നിങ്ങളുടെ കമ്പനി'
+                },
+                'punjabi': {
+                    'Your Name': 'ਤੁਹਾਡਾ ਨਾਮ',
+                    'Your Professional Title': 'ਤੁਹਾਡਾ ਪੇਸ਼ੇਵਰ ਸਿਰਲੇਖ',
+                    'Professional Summary': 'ਪੇਸ਼ੇਵਰ ਸੰਖੇਪ',
+                    'Education': 'ਸਿੱਖਿਆ',
+                    'Work Experience': 'ਕੰਮ ਦਾ ਤਜਰਬਾ',
+                    'Skills': 'ਹੁਨਰ',
+                    'Your Degree': 'ਤੁਹਾਡੀ ਡਿਗਰੀ',
+                    'Your Institution': 'ਤੁਹਾਡੀ ਸੰਸਥਾ',
+                    'Your Position': 'ਤੁਹਾਡੀ ਪੋਜੀਸ਼ਨ',
+                    'Your Company': 'ਤੁਹਾਡੀ ਕੰਪਨੀ'
+                },
+                'odia': {
+                    'Your Name': 'ଆପଣଙ୍କ ନାମ',
+                    'Your Professional Title': 'ଆପଣଙ୍କ ପେଶାଦାର ଶୀର୍ଷକ',
+                    'Professional Summary': 'ପେଶାଦାର ସାରାଂଶ',
+                    'Education': 'ଶିକ୍ଷା',
+                    'Work Experience': 'କାର୍ଯ୍ୟ ଅନୁଭବ',
+                    'Skills': 'ଦକ୍ଷତା',
+                    'Your Degree': 'ଆପଣଙ୍କ ଡିଗ୍ରୀ',
+                    'Your Institution': 'ଆପଣଙ୍କ ଅନୁଷ୍ଠାନ',
+                    'Your Position': 'ଆପଣଙ୍କ ପଦବୀ',
+                    'Your Company': 'ଆପଣଙ୍କ କମ୍ପାନୀ'
+                }
+            };
+            
+            // If we have a translation for this text
+            if (translations[targetLanguage] && translations[targetLanguage][text]) {
+                return translations[targetLanguage][text];
+            }
+            
+            // For dynamic content that's not in our dictionary, we would use a translation API
+            // For now, we'll return the original text with a language indicator
+            return text;
+        }
+        
+        // Function to translate user input
+        async function translateUserInput(text, targetLanguage) {
+            // In a real implementation, this would call a translation API
+            // For demonstration, we'll return the original text
+            return text;
+        }
+    </script>
+    <script>
+        // Skill mapping for recommendations
+        const skillRecommendations = {
+            'python': {
+                recommended: ['Machine Learning', 'Data Science', 'Django', 'Flask'],
+                description: 'Enhance your Python skills with these advanced technologies'
+            },
+            'java': {
+                recommended: ['Spring Boot', 'Android Development', 'Microservices'],
+                description: 'Take your Java skills to the next level'
+            },
+            'javascript': {
+                recommended: ['React.js', 'Node.js', 'Vue.js', 'TypeScript'],
+                description: 'Modern JavaScript frameworks and tools'
+            },
+            'html': {
+                recommended: ['CSS', 'JavaScript', 'React.js', 'Responsive Design'],
+                description: 'Frontend development skills to complement HTML'
+            },
+            'css': {
+                recommended: ['SASS/SCSS', 'Tailwind CSS', 'Bootstrap', 'CSS Grid'],
+                description: 'Advanced styling technologies'
+            },
+            'react': {
+                recommended: ['Redux', 'Next.js', 'React Native', 'GraphQL'],
+                description: 'Expand your React ecosystem knowledge'
+            },
+            'sql': {
+                recommended: ['NoSQL', 'MongoDB', 'Database Design', 'ORM'],
+                description: 'Database technologies beyond SQL'
+            },
+            'excel': {
+                recommended: ['Power BI', 'Tableau', 'Data Analysis', 'VBA'],
+                description: 'Data analysis and visualization tools'
+            },
+            'communication': {
+                recommended: ['Public Speaking', 'Technical Writing', 'Team Leadership'],
+                description: 'Soft skills to enhance your communication abilities'
+            },
+            'project management': {
+                recommended: ['Agile', 'Scrum', 'JIRA', 'Risk Management'],
+                description: 'Project management methodologies and tools'
+            },
+            'marketing': {
+                recommended: ['Digital Marketing', 'SEO', 'Content Strategy', 'Analytics'],
+                description: 'Modern marketing skills and techniques'
+            },
+            'design': {
+                recommended: ['UI/UX Design', 'Figma', 'Adobe XD', 'Design Systems'],
+                description: 'Design tools and methodologies'
+            },
+            'data analysis': {
+                recommended: ['Machine Learning', 'R', 'Statistical Analysis', 'Big Data'],
+                description: 'Advanced data analysis techniques'
+            }
+        };
+
+        // Default recommendations for any skill not in the mapping
+        const defaultRecommendations = {
+            recommended: ['Project Management', 'Communication Skills', 'Problem Solving'],
+            description: 'Essential skills that complement any technical expertise'
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const generateBtn = document.getElementById('generate-resume');
+            const previewSection = document.getElementById('preview-section');
+            const resumeForm = document.getElementById('resume-form');
+            const editBtn = document.getElementById('edit-resume');
+            const resetBtn = document.getElementById('reset-form');
+            const downloadPdfBtn = document.getElementById('download-pdf');
+            const previewCard = document.getElementById('preview-card');
+            const editFromCardBtn = document.getElementById('edit-from-card');
+            const downloadFromCardBtn = document.getElementById('download-from-card');
+            const languageSelector = document.getElementById('language-selector');
+            const optionCards = document.querySelectorAll('.option-card');
+            const skillGapSection = document.getElementById('skill-gap-section');
+            const recommendationsSection = document.getElementById('recommendations-section');
+            
+            // Handle resume builder option selection
+            optionCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // Remove active class from all cards
+                    optionCards.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked card
+                    this.classList.add('active');
+                    
+                    // Show/hide language selector based on option
+                    if (this.dataset.option === 'bilingual') {
+                        languageSelector.style.display = 'block';
+                    } else {
+                        languageSelector.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Generate resume preview
+            generateBtn.addEventListener('click', async function() {
+                // Check if bilingual option is selected
+                const isBilingual = document.querySelector('.option-card[data-option="bilingual"]').classList.contains('active');
+                const selectedLanguage = isBilingual ? document.getElementById('regionalLanguage').value : null;
+                
+                // Get user input values
+                const fullName = document.getElementById('fullName').value || 'Your Name';
+                const jobTitle = document.getElementById('jobTitle').value || 'Your Professional Title';
+                const email = document.getElementById('email').value || 'your.email@example.com';
+                const phone = document.getElementById('phone').value || 'Your Phone Number';
+                const summary = document.getElementById('summary').value || 'Your professional summary will appear here.';
+                const degree = document.getElementById('degree').value || 'Your Degree';
+                const institution = document.getElementById('institution').value || 'Your Institution';
+                const position = document.getElementById('jobPosition').value || 'Your Position';
+                const company = document.getElementById('company').value || 'Your Company';
+                const jobDescription = document.getElementById('jobDescription').value || 'Your job description will appear here.';
+                
+                // Update preview with form data (English section)
+                document.getElementById('preview-name').textContent = fullName;
+                document.getElementById('preview-title').textContent = jobTitle;
+                document.getElementById('preview-email').textContent = email;
+                document.getElementById('preview-phone').textContent = phone;
+                document.getElementById('preview-summary').textContent = summary;
+                document.getElementById('preview-degree').textContent = degree;
+                document.getElementById('preview-institution').textContent = institution;
+                document.getElementById('preview-position').textContent = position;
+                document.getElementById('preview-company').textContent = company;
+                document.getElementById('preview-job-description').textContent = jobDescription;
+                
+                // Skills
+                const skillsInput = document.getElementById('skills').value;
+                const skillsContainer = document.getElementById('preview-skills');
+                skillsContainer.innerHTML = '';
+                
+                if (skillsInput) {
+                    const skillsArray = skillsInput.split(',').map(skill => skill.trim());
+                    skillsArray.forEach(skill => {
+                        const skillTag = document.createElement('span');
+                        skillTag.className = 'skill-tag';
+                        skillTag.textContent = skill;
+                        skillsContainer.appendChild(skillTag);
+                    });
+                    
+                    // Generate skill gap analysis and recommendations
+                    generateSkillGapAnalysis(skillsArray);
+                    generateRecommendations(skillsArray);
+                    skillGapSection.style.display = 'block';
+                    recommendationsSection.style.display = 'block';
+                } else {
+                    const skillTag = document.createElement('span');
+                    skillTag.className = 'skill-tag';
+                    skillTag.textContent = 'Add your skills';
+                    skillsContainer.appendChild(skillTag);
+                    skillGapSection.style.display = 'none';
+                    recommendationsSection.style.display = 'none';
+                }
+                
+                // Handle bilingual resume
+                if (isBilingual) {
+                    // Clear any existing bilingual sections
+                    const existingBilingualSections = document.querySelectorAll('.bilingual-section, .language-indicator');
+                    existingBilingualSections.forEach(section => section.remove());
+                    
+                    const languageNames = {
+                        'hindi': 'हिंदी',
+                        'tamil': 'தமிழ்',
+                        'telugu': 'తెలుగు',
+                        'bengali': 'বাংলা',
+                        'marathi': 'मराठी',
+                        'gujarati': 'ગુજરાતી',
+                        'kannada': 'ಕನ್ನಡ',
+                        'malayalam': 'മലയാളം',
+                        'punjabi': 'ਪੰਜਾਬੀ',
+                        'odia': 'ଓଡ଼ିଆ'
+                    };
+                    
+                    // Add language indicator to preview
+                    const languageIndicator = document.createElement('div');
+                    languageIndicator.className = 'language-indicator';
+                    languageIndicator.innerHTML = `<p style="color: #0066cc; margin-top: 10px; font-style: italic;">Bilingual Resume: English + ${languageNames[selectedLanguage] || selectedLanguage}</p>`;
+                    document.querySelector('.resume-header').appendChild(languageIndicator);
+                    
+                    // Translate section headings
+                    const sectionHeadings = document.querySelectorAll('.resume-section h3');
+                    for (const heading of sectionHeadings) {
+                        const originalText = heading.textContent;
+                        const translatedText = await translateText(originalText, selectedLanguage);
+                        
+                        // Create bilingual heading
+                        heading.innerHTML = `${originalText} <span style="color: #FF9933; margin-left: 10px;">/ ${translatedText}</span>`;
+                    }
+                    
+                    // Create bilingual content for each section
+                    // Personal info
+                    const translatedName = await translateUserInput(fullName, selectedLanguage);
+                    const translatedTitle = await translateUserInput(jobTitle, selectedLanguage);
+                    
+                    // Add bilingual name and title
+                    document.getElementById('preview-name').innerHTML = 
+                        `${fullName} <span style="font-size: 0.9em; color: #FF9933;">(${translatedName})</span>`;
+                    document.getElementById('preview-title').innerHTML = 
+                        `${jobTitle} <span style="font-size: 0.9em; color: #FF9933;">(${translatedTitle})</span>`;
+                    
+                    // Translate and add bilingual summary
+                    const translatedSummary = await translateUserInput(summary, selectedLanguage);
+                    const summaryElement = document.getElementById('preview-summary');
+                    const bilingualSummary = document.createElement('div');
+                    bilingualSummary.className = 'bilingual-section';
+                    bilingualSummary.innerHTML = `<p style="color: #FF9933; margin-top: 10px;">${translatedSummary}</p>`;
+                    summaryElement.parentNode.appendChild(bilingualSummary);
+                    
+                    // Translate and add bilingual education
+                    const translatedDegree = await translateUserInput(degree, selectedLanguage);
+                    const translatedInstitution = await translateUserInput(institution, selectedLanguage);
+                    const educationElement = document.getElementById('preview-institution').parentNode;
+                    const bilingualEducation = document.createElement('div');
+                    bilingualEducation.className = 'bilingual-section';
+                    bilingualEducation.innerHTML = `
+                        <h4 style="color: #FF9933;">${translatedDegree}</h4>
+                        <p style="color: #FF9933;">${translatedInstitution}</p>
+                    `;
+                    educationElement.appendChild(bilingualEducation);
+                    
+                    // Translate and add bilingual work experience
+                    const translatedPosition = await translateUserInput(position, selectedLanguage);
+                    const translatedCompany = await translateUserInput(company, selectedLanguage);
+                    const translatedJobDescription = await translateUserInput(jobDescription, selectedLanguage);
+                    const workElement = document.getElementById('preview-job-description').parentNode;
+                    const bilingualWork = document.createElement('div');
+                    bilingualWork.className = 'bilingual-section';
+                    bilingualWork.innerHTML = `
+                        <h4 style="color: #FF9933;">${translatedPosition}</h4>
+                        <p style="color: #FF9933;">${translatedCompany}</p>
+                        <p style="color: #FF9933;">${translatedJobDescription}</p>
+                    `;
+                    workElement.appendChild(bilingualWork);
+                    
+                    // Translate skills
+                    if (skillsInput) {
+                        const skillsArray = skillsInput.split(',').map(skill => skill.trim());
+                        const translatedSkills = await Promise.all(
+                            skillsArray.map(async skill => await translateUserInput(skill, selectedLanguage))
+                        );
+                        
+                        const bilingualSkills = document.createElement('div');
+                        bilingualSkills.className = 'bilingual-section skills-list';
+                        bilingualSkills.style.marginTop = '10px';
+                        
+                        translatedSkills.forEach(skill => {
+                            const skillTag = document.createElement('span');
+                            skillTag.className = 'skill-tag';
+                            skillTag.style.backgroundColor = '#fff3e0';
+                            skillTag.style.color = '#FF9933';
+                            skillTag.textContent = skill;
+                            bilingualSkills.appendChild(skillTag);
+                        });
+                        
+                        skillsContainer.parentNode.appendChild(bilingualSkills);
+                    }
+                }
+                
+                // Show preview section
+                previewSection.classList.add('active');
+                resumeForm.style.display = 'none';
+                previewCard.style.display = 'block';
+                
+                // Scroll to preview
+                previewSection.scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Edit resume
+            editBtn.addEventListener('click', function() {
+                previewSection.classList.remove('active');
+                previewCard.style.display = 'none';
+                resumeForm.style.display = 'block';
+                resumeForm.scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Edit from preview card
+            editFromCardBtn.addEventListener('click', function() {
+                previewSection.classList.remove('active');
+                previewCard.style.display = 'none';
+                resumeForm.style.display = 'block';
+                resumeForm.scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Reset form
+            resetBtn.addEventListener('click', function() {
+                const inputs = document.querySelectorAll('input, textarea');
+                inputs.forEach(input => {
+                    input.value = '';
+                });
+                skillGapSection.style.display = 'none';
+                recommendationsSection.style.display = 'none';
+            });
+            
+            // Generate and download PDF
+            function generatePDF() {
+                const element = document.querySelector('.resume-preview');
+                const opt = {
+                    margin: [10, 10],
+                    filename: 'resume.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2 },
+                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                };
+                
+                // Generate PDF
+                html2pdf().set(opt).from(element).save();
+            }
+            
+            // Download PDF buttons
+            downloadPdfBtn.addEventListener('click', generatePDF);
+            downloadFromCardBtn.addEventListener('click', generatePDF);
+            
+            // Mobile menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const menu = document.querySelector('.menu');
+            
+            if (hamburger) {
+                hamburger.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    menu.classList.toggle('active');
+                });
+            }
+
+            // =========================
+            // AI CYBERSECURITY MODULE
+            // =========================
+
+            let aiThreatScore = 0;
+
+            const threatDisplay =
+            document.getElementById(
+            'monitor-threat-score'
+            );
+
+            const sessionStatus =
+            document.getElementById(
+            'monitor-session-status'
+            );
+
+            function updateThreat(reason){
+
+                aiThreatScore += 20;
+
+                console.log(
+                'Threat Detected:',
+                reason
+                );
+
+                if(threatDisplay){
+
+                    threatDisplay.textContent =
+                    aiThreatScore;
+                }
+
+                if(sessionStatus){
+
+                    sessionStatus.textContent =
+                    'Warning';
+                }
+            }
+
+            function lockSensitiveContent(){
+
+                const sensitiveElements =
+                document.querySelectorAll(
+                '.sensitive-data'
+                );
+
+                sensitiveElements.forEach(
+                (element)=>{
+
+                    element.classList.add(
+                    'locked-session'
+                    );
+
+                });
+
+                // UPDATE SESSION STATUS
+
+                if(sessionStatus){
+
+                    sessionStatus.textContent =
+                    'Locked';
+                }
+
+                // CREATE OVERLAY
+
+                if(
+                !document.querySelector(
+                '.session-overlay'
+                )
+                ){
+
+                    const overlay =
+                    document.createElement('div');
+
+                    overlay.className =
+                    'session-overlay';
+
+                    overlay.innerHTML = `
+                    <div>
+                        Secure Session Locked
+                        <div class="reload-message">
+                        Reload page to continue
+                        </div>
+                    </div>
+                    `;
+
+                    document.body.appendChild(
+                    overlay
+                    );
+
+                }
+
+            }
+
+
+            // TAB SWITCH DETECTION
+            document.addEventListener(
+            'visibilitychange',
+            function(){
+
+                if(document.hidden){
+
+                    lockSensitiveContent();
+
+                    updateThreat(
+                    'Tab Switch'
+                    );
+
+                }
+
+            });
+
+            // INACTIVITY DETECTION
+            let inactivityTimer;
+
+            function resetInactivity(){
+
+                clearTimeout(
+                inactivityTimer
+                );
+
+                inactivityTimer =
+                setTimeout(()=>{
+
+                    lockSensitiveContent();
+
+                    updateThreat(
+                    'User Inactivity'
+                    );
+
+                },5000);
+
+
+            }
+
+            document.onmousemove =
+            resetInactivity;
+
+            document.onkeypress =
+            resetInactivity;
+
+        });
+        
+        // Function to generate skill gap analysis
+        function generateSkillGapAnalysis(userSkills) {
+            const existingSkillsList = document.getElementById('existing-skills-list');
+            const recommendedSkillsList = document.getElementById('recommended-skills-list');
+            
+            // Clear previous lists
+            existingSkillsList.innerHTML = '';
+            recommendedSkillsList.innerHTML = '';
+            
+            // Process user skills
+            const processedSkills = userSkills.map(skill => skill.toLowerCase());
+            
+            // Add existing skills to the list
+            processedSkills.forEach(skill => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `<span class="skill-name">${skill}</span>`;
+                existingSkillsList.appendChild(listItem);
+            });
+            
+            // Generate recommendations
+            const recommendationsMap = new Map();
+            
+            processedSkills.forEach(skill => {
+                // Find matching skill or closest match
+                let matchedSkill = null;
+                for (const key in skillRecommendations) {
+                    if (skill.includes(key) || key.includes(skill)) {
+                        matchedSkill = key;
+                        break;
+                    }
+                }
+                
+                // Get recommendations for the skill
+                const recommendations = matchedSkill ? 
+                    skillRecommendations[matchedSkill] : defaultRecommendations;
+                
+                // Add recommendations to the map (to avoid duplicates)
+                recommendations.recommended.forEach(rec => {
+                    // Only add if not already in user skills
+                    if (!processedSkills.some(userSkill => 
+                        userSkill.toLowerCase() === rec.toLowerCase() ||
+                        userSkill.toLowerCase().includes(rec.toLowerCase()) ||
+                        rec.toLowerCase().includes(userSkill.toLowerCase())
+                    )) {
+                        recommendationsMap.set(rec.toLowerCase(), {
+                            name: rec,
+                            description: recommendations.description
+                        });
+                    }
+                });
+            });
+            
+            // Add recommendations to the list
+            recommendationsMap.forEach(recommendation => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `
+                    <span class="skill-name">${recommendation.name}</span>
+                    <span class="skill-description">${recommendation.description}</span>
+                `;
+                recommendedSkillsList.appendChild(listItem);
+            });
+        }
+        
+        // Function to generate recommendations
+        function generateRecommendations(userSkills) {
+            const internshipContainer = document.getElementById('internship-recommendations');
+            const courseContainer = document.getElementById('course-recommendations');
+            
+            // Clear previous recommendations
+            internshipContainer.innerHTML = '';
+            courseContainer.innerHTML = '';
+            
+            // Sample internship recommendations based on skills
+            const internships = [
+                {
+                    title: 'Software Development Intern',
+                    company: 'Tech Solutions Ltd',
+                    location: 'Bangalore',
+                    skills: ['Java', 'Python', 'Web Development']
+                },
+                {
+                    title: 'Data Science Intern',
+                    company: 'Analytics India',
+                    location: 'Hyderabad',
+                    skills: ['Python', 'Machine Learning', 'Statistics']
+                },
+                {
+                    title: 'Frontend Developer Intern',
+                    company: 'Digital Creations',
+                    location: 'Mumbai',
+                    skills: ['HTML', 'CSS', 'JavaScript', 'React']
+                }
+            ];
+            
+            // Sample course recommendations
+            const courses = [
+                {
+                    title: 'Full Stack Web Development',
+                    provider: 'Coursera',
+                    duration: '3 months',
+                    skills: ['HTML', 'CSS', 'JavaScript', 'Node.js']
+                },
+                {
+                    title: 'Data Science Specialization',
+                    provider: 'edX',
+                    duration: '4 months',
+                    skills: ['Python', 'Data Analysis', 'Machine Learning']
+                },
+                {
+                    title: 'Mobile App Development',
+                    provider: 'Udemy',
+                    duration: '2 months',
+                    skills: ['Java', 'Android', 'Kotlin']
+                }
+            ];
+            
+            // Add internship recommendations
+            internships.forEach(internship => {
+                const item = document.createElement('div');
+                item.className = 'recommendation-item';
+                item.innerHTML = `
+                    <h5>${internship.title}</h5>
+                    <p><strong>${internship.company}</strong></p>
+                    <p><i class="fas fa-map-marker-alt"></i> ${internship.location}</p>
+                    <div>
+                        ${internship.skills.map(skill => `<span class="badge">${skill}</span>`).join(' ')}
+                    </div>
+                `;
+                internshipContainer.appendChild(item);
+            });
+            
+            // Add course recommendations
+            courses.forEach(course => {
+                const item = document.createElement('div');
+                item.className = 'recommendation-item';
+                item.innerHTML = `
+                    <h5>${course.title}</h5>
+                    <p><strong>${course.provider}</strong></p>
+                    <p><i class="fas fa-clock"></i> ${course.duration}</p>
+                    <div>
+                        ${course.skills.map(skill => `<span class="badge">${skill}</span>`).join(' ')}
+                    </div>
+                `;
+                courseContainer.appendChild(item);
+            });
+        }
+    </script>
+</body>
+</html>

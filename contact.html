@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - PM Internship Scheme</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="logo.svg" alt="PM Internship Scheme Logo">
+                <span>PM Internship Scheme</span>
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="find-internships.html">Find Internships</a></li>
+                    <li><a href="career-guidance.html">Career Guidance</a></li>
+                    <li><a href="resume-builder.html">AI Resume Builder</a></li>
+                    <li><a href="mock-interview.html">AI Mock Interview</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contact Hero Section -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Have questions about the PM Internship Scheme? We're here to help! Reach out to our support team through any of the channels below.</p>
+        </div>
+    </section>
+
+    <!-- Contact Content Section -->
+    <section class="contact-content">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-form">
+                    <h2>Send Us a Message</h2>
+                    <p>Fill out the form below and our team will get back to you as soon as possible.</p>
+                    <form id="support-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                        </div>
+                        <div class="form-group">
+                            <label for="query-type">Query Type</label>
+                            <select id="query-type" name="query-type" required>
+                                <option value="" disabled selected>Select your query type</option>
+                                <option value="application">Internship Application</option>
+                                <option value="technical">Technical Support</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="partnership">Partnership Inquiry</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" placeholder="Please describe your query in detail..." required></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn primary">Submit Message</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Our Office</h3>
+                            <p>PM Internship Scheme Headquarters<br>
+                            Ministry of Skill Development & Entrepreneurship<br>
+                            Shram Shakti Bhawan, Rafi Marg<br>
+                            New Delhi - 110001, India</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Email Us</h3>
+                            <a href="mailto:support@pminternship.gov.in">support@pminternship.gov.in</a>
+                            <a href="mailto:info@pminternship.gov.in">info@pminternship.gov.in</a>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Call Us</h3>
+                            <a href="tel:+911123465000">+91 11 2346 5000</a>
+                            <p>Monday to Friday, 9:00 AM - 5:30 PM</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Social Media</h3>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                                <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+                                <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                                <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toll-Free Section -->
+    <section class="toll-free">
+        <div class="container">
+            <div class="toll-free-content">
+                <h2>Toll-Free Helpline</h2>
+                <p>For candidates from rural and remote areas, we offer a dedicated toll-free helpline for assistance in multiple regional languages.</p>
+                <div class="toll-free-number">
+                    <i class="fas fa-headset"></i>
+                    <span>1800-XXX-XXXX</span>
+                </div>
+                <p>Available Monday to Saturday, 8:00 AM - 8:00 PM</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Official Links Section -->
+    <section class="official-links">
+        <div class="container">
+            <h2>Official PM Internship Portal Links</h2>
+            <div class="links-grid">
+                <div class="link-card">
+                    <div class="link-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Official Website</h3>
+                    <p>Visit the official PM Internship Scheme website for comprehensive information.</p>
+                    <a href="#" class="btn secondary">Visit Website</a>
+                </div>
+                <div class="link-card">
+                    <div class="link-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Guidelines & FAQs</h3>
+                    <p>Access detailed guidelines and frequently asked questions about the scheme.</p>
+                    <a href="#" class="btn secondary">View Guidelines</a>
+                </div>
+                <div class="link-card">
+                    <div class="link-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Student Portal</h3>
+                    <p>Log in to your student account to track applications and update your profile.</p>
+                    <a href="#" class="btn secondary">Student Login</a>
+                </div>
+                <div class="link-card">
+                    <div class="link-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Employer Portal</h3>
+                    <p>For organizations looking to offer internships through the PM Scheme.</p>
+                    <a href="#" class="btn secondary">Employer Login</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="tricolor-strip"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="indian-flag.svg" alt="Indian Flag">
+                    <p>Made in India for Indian Youth</p>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 PM Internship Scheme. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="recommendations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const supportForm = document.getElementById('support-form');
+            
+            supportForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simple form validation
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                
+                if (name && email && message) {
+                    // Show success message
+                    alert('Thank you for your message! Our team will get back to you soon.');
+                    supportForm.reset();
+                } else {
+                    alert('Please fill in all required fields.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

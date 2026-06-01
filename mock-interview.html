@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Mock Interview - PM Internship Scheme</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="logo.svg" alt="PM Internship Scheme Logo">
+                <span>PM Internship Scheme</span>
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="find-internships.html">Find Internships</a></li>
+                    <li><a href="career-guidance.html">Career Guidance</a></li>
+                    <li><a href="resume-builder.html">AI Resume Builder</a></li>
+                    <li><a href="mock-interview.html" class="active">AI Mock Interview</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Security Monitor Panel -->
+    <div class="security-monitor-panel">
+        <div class="container">
+            <div class="monitor-item">
+                <span class="label">AI Threat Score:</span>
+                <span class="value" id="monitor-threat-score">0</span>
+            </div>
+            <div class="monitor-item">
+                <span class="label">Session Status:</span>
+                <span class="value" id="monitor-session-status">Secure</span>
+            </div>
+            <div class="monitor-item">
+                <span class="label">Security Monitoring:</span>
+                <span class="value status-active">Active</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Main Content -->
+    <section class="page-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>AI Mock Interview</h1>
+                <p>Practice with role-specific questions and get instant feedback</p>
+            </div>
+            
+            <div class="interview-container">
+                <!-- Role Selector -->
+                <div class="role-selector" id="role-selector">
+                    <h3><i class="fas fa-briefcase"></i> What role are you interviewing for?</h3>
+                    <div class="role-input">
+                        <input type="text" id="role-input" placeholder="e.g., Software Developer Intern, Data Analyst...">
+                        <button id="start-interview">Start Interview</button>
+                    </div>
+                    <div class="role-suggestions">
+                        <span class="role-tag">Software Developer</span>
+                        <span class="role-tag">Data Analyst</span>
+                        <span class="role-tag">Marketing Intern</span>
+                        <span class="role-tag">HR Assistant</span>
+                        <span class="role-tag">Finance Intern</span>
+                        <span class="role-tag">Content Writer</span>
+                    </div>
+                </div>
+                
+                <!-- Interview Section -->
+                <div class="interview-section" id="interview-section">
+                    <h3 id="interview-title">Mock Interview: <span id="selected-role">Role</span></h3>
+                    <p>Answer the following questions as you would in a real interview. Our AI will provide feedback on your responses.</p>
+                    
+                    <div id="questions-container">
+                        <!-- Questions will be dynamically added here -->
+                    </div>
+                    
+                    <button id="submit-answers" class="btn primary">Submit Answers</button>
+                    
+                    <!-- Feedback Section -->
+                    <div class="feedback-container" id="feedback-container">
+                        <h3>Interview Feedback</h3>
+                        
+                        <div class="feedback-card strengths">
+                            <h4><i class="fas fa-thumbs-up"></i> Strengths</h4>
+                            <ul id="strengths-list">
+                                <!-- Strengths will be added here -->
+                            </ul>
+                        </div>
+                        
+                        <div class="feedback-card improvements">
+                            <h4><i class="fas fa-clipboard-list"></i> Areas to Improve</h4>
+                            <ul id="improvements-list">
+                                <!-- Improvements will be added here -->
+                            </ul>
+                        </div>
+                        
+                        <div class="feedback-actions">
+                            <button id="retry-interview" class="btn secondary">Try New Questions</button>
+                            <button id="new-role" class="btn primary">Change Role</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="tricolor-strip"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="indian-flag.svg" alt="Indian Flag">
+                    <p>Made in India for Indian Youth</p>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 PM Internship Scheme. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const roleInput = document.getElementById('role-input');
+            const startInterviewBtn = document.getElementById('start-interview');
+            const roleTags = document.querySelectorAll('.role-tag');
+            const roleSelector = document.getElementById('role-selector');
+            const interviewSection = document.getElementById('interview-section');
+            const selectedRoleSpan = document.getElementById('selected-role');
+            const questionsContainer = document.getElementById('questions-container');
+            const submitAnswersBtn = document.getElementById('submit-answers');
+            const feedbackContainer = document.getElementById('feedback-container');
+            const strengthsList = document.getElementById('strengths-list');
+            const improvementsList = document.getElementById('improvements-list');
+            const retryInterviewBtn = document.getElementById('retry-interview');
+            const newRoleBtn = document.getElementById('new-role');
+            
+            // Load recommendations script
+            const recommendationsScript = document.createElement('script');
+            recommendationsScript.src = 'recommendations.js';
+            document.head.appendChild(recommendationsScript);
+            
+            // Role suggestion tags
+            roleTags.forEach(tag => {
+                tag.addEventListener('click', function() {
+                    roleInput.value = this.textContent;
+                });
+            });
+            
+            // Questions database by role category
+            const questionsByCategory = {
+                'software': [
+                    "Describe a challenging programming problem you've solved recently. What was your approach?",
+                    "How do you ensure your code is maintainable and readable for other developers?",
+                    "Explain how you would implement error handling in a web application.",
+                    "What version control systems have you used, and how do you handle merge conflicts?",
+                    "How do you stay updated with the latest technologies and programming practices?"
+                ],
+                'data': [
+                    "Describe a data analysis project you've worked on. What insights did you discover?",
+                    "How do you ensure data quality in your analysis?",
+                    "Explain a statistical concept you've applied in a real-world scenario.",
+                    "What tools and programming languages do you use for data visualization?",
+                    "How would you approach a dataset with missing values?"
+                ],
+                'marketing': [
+                    "Describe a marketing campaign you've worked on or studied. What made it successful?",
+                    "How do you measure the success of a digital marketing campaign?",
+                    "What social media platforms do you think are most effective for B2B marketing and why?",
+                    "How do you stay updated with the latest marketing trends?",
+                    "Describe your experience with content creation and SEO."
+                ],
+                'hr': [
+                    "How would you handle a situation where an employee is consistently underperforming?",
+                    "What strategies would you use to improve employee engagement?",
+                    "How do you ensure diversity and inclusion in the workplace?",
+                    "Describe your experience with recruitment and onboarding processes.",
+                    "How would you handle a conflict between two team members?"
+                ],
+                'finance': [
+                    "Explain the difference between financial accounting and management accounting.",
+                    "How would you analyze a company's financial health?",
+                    "Describe your experience with financial modeling or forecasting.",
+                    "How do you stay updated with financial regulations and compliance requirements?",
+                    "What financial software or tools are you proficient in?"
+                ],
+                'content': [
+                    "How do you adapt your writing style for different audiences and platforms?",
+                    "Describe your research process before writing about a new topic.",
+                    "How do you ensure your content is SEO-friendly?",
+                    "What tools do you use for grammar checking and editing?",
+                    "How do you handle feedback and revisions to your writing?"
+                ],
+                'default': [
+                    "Tell me about your relevant experience for this role.",
+                    "Why are you interested in this field?",
+                    "Describe a challenging situation you've faced and how you overcame it.",
+                    "What are your strengths and weaknesses related to this position?",
+                    "Where do you see yourself professionally in 5 years?"
+                ]
+            };
+            
+            // Feedback templates
+            const strengthTemplates = [
+                "Your answer demonstrates strong {skill} skills.",
+                "You effectively communicated your experience with {topic}.",
+                "Your approach to {topic} shows good problem-solving abilities.",
+                "You provided a clear and structured response about {topic}.",
+                "Your understanding of {topic} is impressive."
+            ];
+            
+            const improvementTemplates = [
+                "Consider providing more specific examples about {topic}.",
+                "Your answer could benefit from more detail about {topic}.",
+                "Try to quantify your achievements related to {topic}.",
+                "Work on structuring your answer about {topic} more clearly.",
+                "Consider addressing potential challenges in {topic}."
+            ];
+            
+            // Start interview
+            startInterviewBtn.addEventListener('click', function() {
+                const role = roleInput.value.trim();
+                if (role === '') {
+                    alert('Please enter a role or select from the suggestions.');
+                    return;
+                }
+                
+                // Determine question category based on role
+                let category = 'default';
+                const roleLower = role.toLowerCase();
+                
+                if (roleLower.includes('software') || roleLower.includes('developer') || roleLower.includes('programmer') || roleLower.includes('engineer')) {
+                    category = 'software';
+                } else if (roleLower.includes('data') || roleLower.includes('analyst') || roleLower.includes('analytics')) {
+                    category = 'data';
+                } else if (roleLower.includes('market')) {
+                    category = 'marketing';
+                } else if (roleLower.includes('hr') || roleLower.includes('human resource')) {
+                    category = 'hr';
+                } else if (roleLower.includes('finance') || roleLower.includes('account')) {
+                    category = 'finance';
+                } else if (roleLower.includes('content') || roleLower.includes('writ')) {
+                    category = 'content';
+                }
+                
+                // Get questions for the category
+                const questions = questionsByCategory[category];
+                
+                // Randomly select 3-5 questions
+                const numQuestions = Math.floor(Math.random() * 3) + 3; // 3-5 questions
+                const selectedQuestions = [];
+                const usedIndices = new Set();
+                
+                while (selectedQuestions.length < numQuestions && selectedQuestions.length < questions.length) {
+                    const randomIndex = Math.floor(Math.random() * questions.length);
+                    if (!usedIndices.has(randomIndex)) {
+                        selectedQuestions.push(questions[randomIndex]);
+                        usedIndices.add(randomIndex);
+                    }
+                }
+                
+                // Display questions
+                questionsContainer.innerHTML = '';
+                selectedQuestions.forEach((question, index) => {
+                    const questionHTML = `
+                        <div class="question-container">
+                            <h4>Question ${index + 1}</h4>
+                            <p>${question}</p>
+                            <textarea class="answer-box" placeholder="Type your answer here..."></textarea>
+                        </div>
+                    `;
+                    questionsContainer.innerHTML += questionHTML;
+                });
+                
+                // Update UI
+                selectedRoleSpan.textContent = role;
+                roleSelector.style.display = 'none';
+                interviewSection.classList.add('active');
+                feedbackContainer.classList.remove('active');
+                
+                // Scroll to interview section
+                interviewSection.scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Submit answers
+            submitAnswersBtn.addEventListener('click', function() {
+                const answerBoxes = document.querySelectorAll('.answer-box');
+                let allAnswered = true;
+                
+                // Check if all questions are answered
+                answerBoxes.forEach(box => {
+                    if (box.value.trim() === '') {
+                        allAnswered = false;
+                    }
+                });
+                
+                if (!allAnswered) {
+                    alert('Please answer all questions before submitting.');
+                    return;
+                }
+                
+                // Generate feedback
+                generateFeedback();
+                
+                // Show feedback
+                feedbackContainer.classList.add('active');
+                feedbackContainer.scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Generate feedback
+            function generateFeedback() {
+                const answerBoxes = document.querySelectorAll('.answer-box');
+                const questionTexts = document.querySelectorAll('.question-container p');
+                
+                // Clear previous feedback
+                strengthsList.innerHTML = '';
+                improvementsList.innerHTML = '';
+                
+                // Generate 2-3 strengths and 2-3 areas to improve
+                const numStrengths = Math.floor(Math.random() * 2) + 2; // 2-3 strengths
+                const numImprovements = Math.floor(Math.random() * 2) + 2; // 2-3 improvements
+                
+                // Extract topics from questions
+                const topics = Array.from(questionTexts).map(q => {
+                    const text = q.textContent;
+                    const mainTopic = text.split(' ').slice(0, 3).join(' ');
+                    return mainTopic;
+                });
+                
+                // Skills to highlight
+                const skills = ['communication', 'analytical', 'problem-solving', 'technical', 'teamwork', 'leadership'];
+                
+                // Generate strengths
+                for (let i = 0; i < numStrengths; i++) {
+                    const randomTemplate = strengthTemplates[Math.floor(Math.random() * strengthTemplates.length)];
+                    const randomTopic = topics[Math.floor(Math.random() * topics.length)];
+                    const randomSkill = skills[Math.floor(Math.random() * skills.length)];
+                    
+                    let feedback = randomTemplate
+                        .replace('{topic}', randomTopic)
+                        .replace('{skill}', randomSkill);
+                    
+                    const li = document.createElement('li');
+                    li.textContent = feedback;
+                    strengthsList.appendChild(li);
+                }
+                
+                // Generate areas to improve
+                for (let i = 0; i < numImprovements; i++) {
+                    const randomTemplate = improvementTemplates[Math.floor(Math.random() * improvementTemplates.length)];
+                    const randomTopic = topics[Math.floor(Math.random() * topics.length)];
+                    
+                    let feedback = randomTemplate.replace('{topic}', randomTopic);
+                    
+                    const li = document.createElement('li');
+                    li.textContent = feedback;
+                    improvementsList.appendChild(li);
+                }
+            }
+            
+            // Retry interview with new questions
+            retryInterviewBtn.addEventListener('click', function() {
+                // Trigger the start interview button with the current role
+                startInterviewBtn.click();
+            });
+            
+            // Change role
+            newRoleBtn.addEventListener('click', function() {
+                roleSelector.style.display = 'block';
+                interviewSection.classList.remove('active');
+                feedbackContainer.classList.remove('active');
+                
+                // Scroll to role selector
+                roleSelector.scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Mobile menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const menu = document.querySelector('.menu');
+            
+            if (hamburger) {
+                hamburger.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    menu.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
